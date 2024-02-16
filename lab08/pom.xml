@@ -3,10 +3,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>ru.specialist.spring</groupId>
-    <artifactId>spring-lab08</artifactId>
+    <artifactId>lab08</artifactId>
     <packaging>war</packaging>
     <build>
-        <finalName>spring-lab08</finalName>
+        <finalName>lab08</finalName>
         <sourceDirectory>src/main/java</sourceDirectory>
         <plugins>
             <plugin>

@@ -5,7 +5,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.PropertySource;
 
 /**
- * spring-lab03
+ * lab03
  */
 @ComponentScan("ru.specialist.spring.lab03")
 @PropertySource("application.properties")
