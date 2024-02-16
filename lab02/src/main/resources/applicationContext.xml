@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:property-placeholder location="application.properties"/>
+
+    <bean id="coordsPoint"
+          class="ru.specialist.spring.lab02.Coords"
+          scope="prototype"
+          autowire-candidate="false">
+        <constructor-arg name="x" value="${point.x}"/>
+        <constructor-arg name="y" value="${point.y}"/>
+    </bean>
+
+    <bean id="coordsCircle"
+          class="ru.specialist.spring.lab02.Coords"
+          scope="prototype"
+          autowire-candidate="true">
+        <constructor-arg name="x" value="${circle.x}"/>
+        <constructor-arg name="y" value="${circle.y}"/>
+    </bean>
+
+    <bean id="pointBean"
+          class="ru.specialist.spring.lab02.Point">
+        <constructor-arg name="color" value="${point.color}"/>
+        <constructor-arg name="coords" ref="coordsPoint"/>
+    </bean>
+
+    <bean id="circleBean"
+          class="ru.specialist.spring.lab02.Circle">
+        <constructor-arg name="color" value="${circle.color}"/>
+        <constructor-arg name="center" ref="coordsCircle"/>
+        <constructor-arg name="radius" value="${circle.radius}"/>
+    </bean>
+
+    <bean id="sceneBean"
+          class="ru.specialist.spring.lab02.Scene"
+          factory-method="getInstance">
+        <property name="object">
+            <set>
+                <ref bean="pointBean"/>
+                <ref bean="circleBean"/>
+            </set>
+        </property>
+    </bean>
+</beans>
